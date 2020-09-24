@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">My First App</string>
+    <string name="protein_consume">Protein Consume :</string>
+    <string name="tugas_2_tracker_layout">Tugas 2: Tracker Layout</string>
+    <string name="enter">Enter</string>
+    <string name="total_for_days">Total for days :</string>
+    <string name="_100g">100g</string>
+    <string name="goal">Goal :</string>
+    <string name="_175g">175g</string>
+    <string name="needed">Needed :</string>
+    <string name="_75g">75g</string>
 </resources>
