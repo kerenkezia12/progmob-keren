@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.tes_constraint_layout);
 
         //variabel
         final TextView txtView = (TextView)findViewById(R.id.MainActivityTextView);
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //public void pindahTugasDua(View v) {
-        //startActivity(new Intent(MainActivity.this, TrackerActivity.class));
-   // }
+    public void pindahTugasDua(View v) {
+        startActivity(new Intent(MainActivity.this, TrackerActivity.class));
+    }
 }
