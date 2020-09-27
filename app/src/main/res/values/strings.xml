@@ -15,4 +15,16 @@
     <string name="replace">Replace</string>
     <string name="name">Name</string>
     <string name="help">Help</string>
+    <string name="type_here">Type Here</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="red">red</string>
+    <string name="green">green</string>
+    <string name="blue">blue</string>
+    <string name="yellow">yellow</string>
+    <string name="row_one">row one</string>
+    <string name="row_two">row two</string>
+    <string name="row_three">row three</string>
+    <string name="row_four">row four</string>
+    <string name="tugas_2_tracker_layouttt">Tugas 2 : Tracker Layout</string>
 </resources>

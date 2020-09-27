@@ -15,13 +15,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tes_constraint_layout);
+        setContentView(R.layout.activity_main);
 
         //variabel
         final TextView txtView = (TextView)findViewById(R.id.MainActivityTextView);
         Button myBtn = (Button)findViewById(R.id.button1);
         final EditText myEditText = (EditText)findViewById(R.id.editText1);
         Button btnHelp = (Button)findViewById(R.id.btnHelp);
+        Button btnTracker = (Button)findViewById(R.id.btnTracker);
 
         //action
         txtView.setText(R.string.text_hello_world);
@@ -44,9 +45,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
+        btnTracker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TrackerActivity.class);
 
-    public void pindahTugasDua(View v) {
-        startActivity(new Intent(MainActivity.this, TrackerActivity.class));
+                startActivity(intent);
+            }
+        });
     }
 }
