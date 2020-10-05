@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name="Pertemuan2.ListActivity"></activity>
         <activity android:name=".HelpActivity" />
         <activity android:name=".TrackerActivity" />
         <activity android:name=".MainActivity">
