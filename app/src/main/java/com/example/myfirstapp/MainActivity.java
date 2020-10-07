@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import Pertemuan2.ListActivity;
+import Pertemuan2.RecyclerActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ListActivity.class);
                 startActivity(intent);
-
             }
         });
 
@@ -65,7 +65,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, TrackerActivity.class);
-
+                startActivity(intent);
+            }
+        });
+        btnRecycler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RecyclerActivity.class);
                 startActivity(intent);
             }
         });
