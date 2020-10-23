@@ -43,6 +43,7 @@ public interface GetDataService {
             @Field("alamat") String alamat,
             @Field("email") String email,
             @Field("foto") String foto,
+            @Field("nim_cari") String nim_cari,
             @Field("nim_progmob") String nim_progmob
     );
 }

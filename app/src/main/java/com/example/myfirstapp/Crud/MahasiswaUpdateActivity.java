@@ -47,6 +47,7 @@ public class MahasiswaUpdateActivity extends AppCompatActivity {
                         edAlamat.getText().toString(),
                         edEmail.getText().toString(),
                         "kosong",
+                        edNimDicari.getText().toString(),
                         "72180222"
                 );
 

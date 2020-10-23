@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.myfirstapp.Adapter.MahasiswaCRUDRecyclerAdapter;
+import com.example.myfirstapp.Adapter.MahasiswaRecyclerAdapter;
 import com.example.myfirstapp.Model.Mahasiswa;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import com.example.myfirstapp.Network.GetDataService;
 import com.example.myfirstapp.Network.RetrofitClientInstance;
 import com.example.myfirstapp.R;
 
+import Pertemuan2.RecyclerActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -47,10 +49,10 @@ public class MahasiswaGetAllActivity extends AppCompatActivity {
                 pd.dismiss();
 
                 mahasiswaList = response.body();
-                mhsAdapter = new MahasiswaCRUDRecyclerAdapter(mahasiswaList);
+                mhsAdapter = new MahasiswaCRUDRecyclerAdapter(MahasiswaGetAllActivity.this);
+                mhsAdapter.setMahasiswaList(mahasiswaList);
 
-                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MahasiswaGetAllActivity.this);
-                rvMhs.setLayoutManager(layoutManager);
+                rvMhs.setLayoutManager(new LinearLayoutManager(MahasiswaGetAllActivity.this));
                 rvMhs.setAdapter(mhsAdapter);
             }
 

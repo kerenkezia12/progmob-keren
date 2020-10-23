@@ -54,7 +54,7 @@ public class MahasiswaRecyclerAdapter extends RecyclerView.Adapter<MahasiswaRecy
         return mahasiswaList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder{
         private TextView tvNama, tvNim, tvNoTelp;
 
         public ViewHolder(@NonNull View itemView) {
