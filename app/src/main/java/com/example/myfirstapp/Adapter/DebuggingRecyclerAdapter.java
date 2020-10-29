@@ -56,9 +56,9 @@ public class DebuggingRecyclerAdapter extends RecyclerView.Adapter<DebuggingRecy
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvNama = itemView.findViewById(R.id.tvNama);
-            tvNim = itemView.findViewById(R.id.tvNim);
-            tvNoTelp = itemView.findViewById(R.id.tvNoTelp);
+            tvNama = itemView.findViewById(R.id.tvNamaMk);
+            tvNim = itemView.findViewById(R.id.tvNidn);
+            tvNoTelp = itemView.findViewById(R.id.tvNamaMk);
         }
     }
 }

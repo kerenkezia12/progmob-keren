@@ -1,4 +1,4 @@
-package com.example.myfirstapp.Crud;
+package com.example.myfirstapp.CrudDosen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,17 +18,17 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class HapusMhsActivity extends AppCompatActivity {
+public class DosenDeleteActivity extends AppCompatActivity {
     ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hapus_mhs);
+        setContentView(R.layout.activity_dosen_delete);
 
         EditText edNim = (EditText) findViewById(R.id.editTextNim);
         Button btnHapus = (Button)findViewById(R.id.buttonHapusMhs);
-        pd = new ProgressDialog(HapusMhsActivity.this);
+        pd = new ProgressDialog(DosenDeleteActivity.this);
 
         btnHapus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,7 +37,7 @@ public class HapusMhsActivity extends AppCompatActivity {
                 pd.show();
 
                 GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
-                Call<DefaultResult> call = service.delete_mhs(
+                Call<DefaultResult> call = service.delete_dsn(
                         edNim.getText().toString(),
                         "72180222"
                 );
@@ -46,14 +46,14 @@ public class HapusMhsActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<DefaultResult> call, Response<DefaultResult> response) {
                         pd.dismiss();
-                        Toast.makeText(HapusMhsActivity.this, "Data Berhasil Dihapus", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DosenDeleteActivity.this, "Data Berhasil Dihapus", Toast.LENGTH_SHORT).show();
                         finish();
                     }
 
                     @Override
                     public void onFailure(Call<DefaultResult> call, Throwable t) {
                         pd.dismiss();
-                        Toast.makeText(HapusMhsActivity.this, "Gagal", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DosenDeleteActivity.this, "Gagal", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });

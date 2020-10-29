@@ -1,8 +1,9 @@
-package com.example.myfirstapp.Crud;
+package com.example.myfirstapp.CrudMatakuliah;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,28 +18,39 @@ import com.example.myfirstapp.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.Field;
 
-public class HapusMhsActivity extends AppCompatActivity {
+public class MatakuliahAddActivity extends AppCompatActivity {
+
     ProgressDialog pd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hapus_mhs);
+        setContentView(R.layout.activity_matakuliah_add);
 
-        EditText edNim = (EditText) findViewById(R.id.editTextNim);
-        Button btnHapus = (Button)findViewById(R.id.buttonHapusMhs);
-        pd = new ProgressDialog(HapusMhsActivity.this);
+        EditText edNama = (EditText) findViewById(R.id.editTextNamaMatkul);
+        EditText edKode = (EditText) findViewById(R.id.editTextKodeMatkul);
+        EditText edHari = (EditText) findViewById(R.id.editTextHariMatkul);
+        EditText edSesi = (EditText) findViewById(R.id.editTextSesiMatkul);
+        EditText edSks = (EditText) findViewById(R.id.editTextSksMatkul);
+        Button btnSimpan = (Button)findViewById(R.id.btnSimpanMatkul);
+        pd = new ProgressDialog(MatakuliahAddActivity.this);
 
-        btnHapus.setOnClickListener(new View.OnClickListener() {
+        btnSimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 pd.setTitle("Mohon menunggu");
                 pd.show();
 
                 GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
-                Call<DefaultResult> call = service.delete_mhs(
-                        edNim.getText().toString(),
+                Call<DefaultResult> call = service.add_matkul(
+                        edNama.getText().toString(),
+                        edKode.getText().toString(),
+                        Integer.parseInt(edHari.getText().toString()),
+                        Integer.parseInt(edSesi.getText().toString()),
+                        Integer.parseInt(edSks.getText().toString()),
                         "72180222"
                 );
 
@@ -46,14 +58,14 @@ public class HapusMhsActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<DefaultResult> call, Response<DefaultResult> response) {
                         pd.dismiss();
-                        Toast.makeText(HapusMhsActivity.this, "Data Berhasil Dihapus", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MatakuliahAddActivity.this, "Data Berhasil Disimpan", Toast.LENGTH_SHORT).show();
                         finish();
                     }
 
                     @Override
                     public void onFailure(Call<DefaultResult> call, Throwable t) {
                         pd.dismiss();
-                        Toast.makeText(HapusMhsActivity.this, "Gagal", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MatakuliahAddActivity.this, "Gagal", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });

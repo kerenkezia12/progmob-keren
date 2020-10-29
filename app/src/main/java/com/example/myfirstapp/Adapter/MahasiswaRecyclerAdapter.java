@@ -1,7 +1,7 @@
 package com.example.myfirstapp.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,11 +57,12 @@ public class MahasiswaRecyclerAdapter extends RecyclerView.Adapter<MahasiswaRecy
     public static class ViewHolder extends RecyclerView.ViewHolder{
         private TextView tvNama, tvNim, tvNoTelp;
 
+        @SuppressLint("CutPasteId")
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvNama = itemView.findViewById(R.id.tvNama);
-            tvNim = itemView.findViewById(R.id.tvNim);
-            tvNoTelp = itemView.findViewById(R.id.tvNoTelp);
+            tvNama = itemView.findViewById(R.id.tvNamaMk);
+            tvNim = itemView.findViewById(R.id.tvNidn);
+            tvNoTelp = itemView.findViewById(R.id.tvNamaMk);
 
         }
     }

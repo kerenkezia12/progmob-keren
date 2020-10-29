@@ -1,4 +1,4 @@
-package com.example.myfirstapp.Crud;
+package com.example.myfirstapp.CrudDosen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.myfirstapp.Model.DefaultResult;
+import com.example.myfirstapp.Model.Dosen;
 import com.example.myfirstapp.Network.GetDataService;
 import com.example.myfirstapp.Network.RetrofitClientInstance;
 import com.example.myfirstapp.R;
@@ -18,49 +19,52 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MahasiswaAddActivity extends AppCompatActivity {
+public class DosenUpdateActivity extends AppCompatActivity {
     ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mahasiswa_add);
-
-        EditText edNama = (EditText) findViewById(R.id.editText);
-        EditText edNim = (EditText) findViewById(R.id.editTextNim);
+        setContentView(R.layout.activity_dosen_update);
+        EditText edNidnDicari = (EditText) findViewById(R.id.editTextNidnDicari);
+        EditText edNama = (EditText) findViewById(R.id.editTextNamaDsn);
+        EditText edNidn = (EditText) findViewById(R.id.editTextNidn);
         EditText edAlamat = (EditText) findViewById(R.id.editTextAlamat);
         EditText edEmail = (EditText) findViewById(R.id.editTextEmail);
-        Button btnSimpan = (Button)findViewById(R.id.buttonSimpanMhs);
-        pd = new ProgressDialog(MahasiswaAddActivity.this);
+        EditText edGelar = (EditText) findViewById(R.id.editTextGelar);
+        Button btnUpdate = (Button)findViewById(R.id.btnSimpan);
+        pd = new ProgressDialog(DosenUpdateActivity.this);
 
-        btnSimpan.setOnClickListener(new View.OnClickListener() {
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 pd.setTitle("Mohon menunggu");
                 pd.show();
 
                 GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
-                Call<DefaultResult> call = service.add_mhs(
+                Call<DefaultResult> call = service.update_dsn(
                         edNama.getText().toString(),
-                        edNim.getText().toString(),
+                        edNidn.getText().toString(),
                         edAlamat.getText().toString(),
                         edEmail.getText().toString(),
+                        edGelar.getText().toString(),
                         "kosong",
-                        "72180222"
+                        "72180222",
+                        edNidnDicari.getText().toString()
                 );
 
                 call.enqueue(new Callback<DefaultResult>() {
                     @Override
                     public void onResponse(Call<DefaultResult> call, Response<DefaultResult> response) {
                         pd.dismiss();
-                        Toast.makeText(MahasiswaAddActivity.this, "Data Berhasil Disimpan", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DosenUpdateActivity.this, "Data Berhasil Disimpan", Toast.LENGTH_SHORT).show();
                         finish();
                     }
 
                     @Override
                     public void onFailure(Call<DefaultResult> call, Throwable t) {
                         pd.dismiss();
-                        Toast.makeText(MahasiswaAddActivity.this, "Gagal", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DosenUpdateActivity.this, "Gagal", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });

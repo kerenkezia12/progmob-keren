@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         //variabel
         final TextView txtView = (TextView)findViewById(R.id.MainActivityTextView);
-        Button myBtn = (Button)findViewById(R.id.button1);
+        Button myBtn = (Button)findViewById(R.id.btnmhs);
         final EditText myEditText = (EditText)findViewById(R.id.editText1);
         Button btnHelp = (Button)findViewById(R.id.btnHelp);
         Button btnTracker = (Button)findViewById(R.id.btnTracker);

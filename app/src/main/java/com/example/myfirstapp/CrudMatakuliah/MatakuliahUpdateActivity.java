@@ -1,4 +1,4 @@
-package com.example.myfirstapp.Crud;
+package com.example.myfirstapp.CrudMatakuliah;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.myfirstapp.Model.DefaultResult;
+import com.example.myfirstapp.Model.Dosen;
 import com.example.myfirstapp.Network.GetDataService;
 import com.example.myfirstapp.Network.RetrofitClientInstance;
 import com.example.myfirstapp.R;
@@ -18,34 +19,37 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MahasiswaAddActivity extends AppCompatActivity {
+public class MatakuliahUpdateActivity extends AppCompatActivity {
     ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mahasiswa_add);
+        setContentView(R.layout.activity_matakuliah_update);
 
-        EditText edNama = (EditText) findViewById(R.id.editText);
-        EditText edNim = (EditText) findViewById(R.id.editTextNim);
-        EditText edAlamat = (EditText) findViewById(R.id.editTextAlamat);
-        EditText edEmail = (EditText) findViewById(R.id.editTextEmail);
-        Button btnSimpan = (Button)findViewById(R.id.buttonSimpanMhs);
-        pd = new ProgressDialog(MahasiswaAddActivity.this);
+        EditText edKodeDicari = (EditText) findViewById(R.id.editTextKodeMatkulDicari);
+        EditText edNama = (EditText) findViewById(R.id.editTextNamaMatkul);
+        EditText edKode = (EditText) findViewById(R.id.editTextKodeMatkul);
+        EditText edHari = (EditText) findViewById(R.id.editTextHariMatkul);
+        EditText edSesi = (EditText) findViewById(R.id.editTextSesiMatkul);
+        EditText edSks = (EditText) findViewById(R.id.editTextSksMatkul);
+        Button btnUpdate = (Button)findViewById(R.id.btnSimpanMatkul);
+        pd = new ProgressDialog(MatakuliahUpdateActivity.this);
 
-        btnSimpan.setOnClickListener(new View.OnClickListener() {
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 pd.setTitle("Mohon menunggu");
                 pd.show();
 
                 GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
-                Call<DefaultResult> call = service.add_mhs(
+                Call<DefaultResult> call = service.update_matkul(
                         edNama.getText().toString(),
-                        edNim.getText().toString(),
-                        edAlamat.getText().toString(),
-                        edEmail.getText().toString(),
-                        "kosong",
+                        edKode.getText().toString(),
+                        Integer.parseInt(edHari.getText().toString()),
+                        Integer.parseInt(edSesi.getText().toString()),
+                        Integer.parseInt(edSks.getText().toString()),
+                        edKodeDicari.getText().toString(),
                         "72180222"
                 );
 
@@ -53,14 +57,14 @@ public class MahasiswaAddActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<DefaultResult> call, Response<DefaultResult> response) {
                         pd.dismiss();
-                        Toast.makeText(MahasiswaAddActivity.this, "Data Berhasil Disimpan", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MatakuliahUpdateActivity.this, "Data Berhasil Disimpan", Toast.LENGTH_SHORT).show();
                         finish();
                     }
 
                     @Override
                     public void onFailure(Call<DefaultResult> call, Throwable t) {
                         pd.dismiss();
-                        Toast.makeText(MahasiswaAddActivity.this, "Gagal", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MatakuliahUpdateActivity.this, "Gagal", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });

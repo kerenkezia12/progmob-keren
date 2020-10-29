@@ -62,8 +62,8 @@ public class MahasiswaCRUDRecyclerAdapter extends RecyclerView.Adapter<Mahasiswa
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvNama = itemView.findViewById(R.id.tvNama);
-            tvNim = itemView.findViewById(R.id.tvNim);
+            tvNama = itemView.findViewById(R.id.tvNamaMk);
+            tvNim = itemView.findViewById(R.id.tvNidn);
 
         }
     }

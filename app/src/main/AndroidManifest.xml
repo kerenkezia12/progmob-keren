@@ -13,19 +13,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Crud.MahasiswaUpdateActivity" />
-        <activity android:name=".Crud.HapusMhsActivity" />
-        <activity android:name=".Crud.MahasiswaAddActivity" />
-        <activity android:name=".Crud.MahasiswaGetAllActivity" />
-        <activity
-            android:name=".Crud.MainMhsActivity"
-            android:label="Menu CRUD Mahasiswa">
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".CrudMatakuliah.MatakuliahDeleteActivity" />
+        <activity android:name=".CrudMatakuliah.MatakuliahUpdateActivity" />
+        <activity android:name=".CrudMatakuliah.MatakuliahGetAllActivity" />
+        <activity android:name=".CrudMatakuliah.MainActivityMatkul" />
+        <activity android:name=".CrudMatakuliah.MatakuliahAddActivity" />
+        <activity android:name=".CrudDosen.DosenDeleteActivity" />
+        <activity android:name=".CrudDosen.DosenUpdateActivity" />
+        <activity android:name=".CrudDosen.MainActivityDosen" />
+        <activity android:name=".CrudDosen.DosenAddActivity1" />
+        <activity android:name=".CrudDosen.DosenGetAllActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Pertemuan6.PrefActivity" />
+        <activity android:name=".Crud.MahasiswaUpdateActivity" />
+        <activity android:name=".Crud.HapusMhsActivity" />
+        <activity android:name=".Crud.MahasiswaAddActivity" />
+        <activity android:name=".Crud.MahasiswaGetAllActivity" />
+        <activity
+            android:name=".Crud.MainMhsActivity"
+            android:label="Menu CRUD Mahasiswa" />
         <activity android:name=".HelpActivity" />
         <activity android:name=".TrackerActivity" />
         <activity android:name=".CardViewTestActivity" />

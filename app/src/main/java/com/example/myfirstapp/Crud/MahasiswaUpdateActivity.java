@@ -55,13 +55,15 @@ public class MahasiswaUpdateActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<DefaultResult> call, Response<DefaultResult> response) {
                         pd.dismiss();
-                        Toast.makeText(MahasiswaUpdateActivity.this, "Data Berhasil Disimpan", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MahasiswaUpdateActivity.this, "Data Berhasil Diubah", Toast.LENGTH_SHORT).show();
+                        finish();
                     }
 
                     @Override
                     public void onFailure(Call<DefaultResult> call, Throwable t) {
                         pd.dismiss();
                         Toast.makeText(MahasiswaUpdateActivity.this, "Gagal", Toast.LENGTH_SHORT).show();
+                        finish();
                     }
                 });
             }
