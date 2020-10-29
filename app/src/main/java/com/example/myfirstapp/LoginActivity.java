@@ -66,15 +66,20 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                         pd.dismiss();
                         users = response.body();
-                        User u = users.get(0);
-                        SharedPreferences.Editor editor = session.edit();
-                        editor.clear();
-                        editor.putString("nimnik", u.getNimnik());
-                        editor.putString("nama", u.getNama());
-                        editor.apply();
-                        finish();
-                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                        startActivity(intent);
+                        if(users.size() == 0) {
+                            Toast.makeText(LoginActivity.this, "Username atau password salah.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            User u = users.get(0);
+
+                            SharedPreferences.Editor editor = session.edit();
+                            editor.clear();
+                            editor.putString("nimnik", u.getNimnik());
+                            editor.putString("nama", u.getNama());
+                            editor.apply();
+                            finish();
+                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                            startActivity(intent);
+                        }
                     }
 
                     @Override
